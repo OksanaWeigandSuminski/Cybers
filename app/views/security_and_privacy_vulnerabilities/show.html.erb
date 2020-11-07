@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @security_and_privacy_vulnerability.product_id %>
+</p>
+
+<p>
+  <strong>Cve:</strong>
+  <%= @security_and_privacy_vulnerability.cve_id %>
+</p>
+
+<p>
+  <strong>Severity:</strong>
+  <%= @security_and_privacy_vulnerability.severity %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @security_and_privacy_vulnerability.description %>
+</p>
+
+<p>
+  <strong>Advisories:</strong>
+  <%= @security_and_privacy_vulnerability.advisories %>
+</p>
+<% @product.security_and_privacy_vulnerabilities.each do |security_and_privacy_vulnerability| %>
+  <tr>
+    <td><%= security_and_privacy_vulnerability.product_id %></td>
+    <td><%= security_and_privacy_vulnerability.cve_id %></td>
+    <td><%= security_and_privacy_vulnerability.description %></td>
+    <td><%= security_and_privacy_vulnerability.advisories %></td>
+    <br><br>
+    <td><%= link_to 'Show', security_and_privacy_vulnerability %></td>
+    <td><%= link_to 'Edit', edit_security_and_privacy_vulnerability_path(security_and_privacy_vulnerability) %></td>
+    <td><%= link_to 'Destroy', security_and_privacy_vulnerability, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+  <br><br>
+<% end %>
+
+<%= link_to 'Edit', edit_security_and_privacy_vulnerability_path(@security_and_privacy_vulnerability) %> |
+<%= link_to 'Back', security_and_privacy_vulnerabilities_path %>
